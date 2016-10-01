@@ -1,0 +1,38 @@
+
+<div class="container">
+	<div class="row new-problem">
+		<h2>Enter in the form the problem you need help with:</h2>
+			<div class="col-sm-12">
+			  <%= form_for @new_problem, url: user_problems_path(@user, @new_problem), html: { method: :post } do |f|%>
+			    
+			    <div class="form-group">
+			      <%= f.label(:title, "Title *", class: "col-sm-4 control-label") %>
+			      <div class="col-sm-4" style="margin:2px;">
+			        <%= f.text_field :title, placeholder:"Give your problem a title", class: "form-control" %>
+			      </div>
+			    </div>
+
+			    <div class="form-group">
+			      <%= f.label(:description, "Description *", class: "col-sm-4 control-label") %>
+			      <div class="col-sm-4" style="margin:2px;">
+			        <%= f.text_field :description, placeholder:"Describe your problem a little", class: "form-control" %>
+			      </div>
+			    </div>
+
+			    <div class="form-group">
+			      <%= f.label(:category, "Category *", class: "col-sm-4 control-label") %>
+			      <div class="col-sm-4" style="margin:2px;">
+			        <%= f.select(:category, ['Decision Tree Tool','Break Even Analysis','Crossover Analysis'])%><br>
+			      </div>
+			    </div>
+				<br>
+			    <div class="form-group">
+			      <div class="col-sm-4" style="margin:20px;">
+			        <%= f.submit "Add Problem", class: "btn btn-primary col-sm-12"%>
+			      </div>
+			    </div>
+			  <% end %>
+			</div> 
+	</div>
+</div>
+

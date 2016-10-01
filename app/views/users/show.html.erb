@@ -1,0 +1,30 @@
+<div class="container">
+	<div class="row profile-title">
+		<div class="col-sm-12">
+			<h1><%= @name %>'s Profile</h1>
+		</div>
+
+		<div class="col-sm-6">
+			<h4 style="display: inline-block; float: left;">
+				With what business problem may we assist you with?
+				<%= button_to "+", new_user_problem_path(@users), :method => "get" %>
+			</h4>
+		</div>
+	</div>
+	<hr>
+
+	<div class="row category-list">
+		<div class="col-sm-6">
+			<h4>Tool Categories:</h4>
+
+			<nav>
+	              <p role="presentation" class="tool-item"><button class="btn btn-primary decision-tree-btn" style="margin:10px;">Decision Tree Tool</button></p>
+	              <p role="presentation" class="tool-item"><button class="btn btn-primary break-even-btn" style="margin:10px;">Break Even Analysis</button></p>
+	              <p role="presentation" class="tool-item"><button class="btn btn-primary crossover-btn" style="margin:10px;">Crossover Analysis</button></p>
+	        </nav>
+		</div>
+
+		<div id="problems" class="col-sm-6" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
+		</div>
+	</div>
+</div>

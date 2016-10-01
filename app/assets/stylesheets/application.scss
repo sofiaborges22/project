@@ -1,0 +1,96 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+.header {
+	height: 90px;
+	background-image: url("congruent_pentagon.png");
+    background-attachment: fixed;
+}
+
+.site-title {
+	vertical-align: baseline;
+	padding: 15px;
+}
+
+.text-right {
+	float: right;
+}
+
+a:link {
+	color: #292727;
+}
+
+a:hover {
+	color: #ed564b;
+}
+
+a:active {
+	color: #ed564b;
+}
+
+.menu {
+	display: inline-block;
+	white-space: nowrap;
+	width: 800px;
+	height: 90px;
+	padding: 5px;
+    margin: 5px;
+}
+
+.menu-item {
+	float: left;
+    list-style-type: none;
+    padding: 5px;
+    margin: 5px;
+}
+
+
+.pre-footer {
+	height: 351px;
+	color: white;
+	background-color: #aaa;
+}
+
+.footer {
+	height: 78px;
+	background-color: #292727;
+	color: white;
+	padding: 25px;
+}
+
+.btn-circle.btn-lg {
+  width: 150px;
+  height: 150px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+  background-color: #292727;
+  color: white;
+  position: absolute;
+  left: 25%;
+}
+
+.row {
+	margin: 10px;
+	padding: 10px;
+}
+
+.add-decision {
+	margin: 0 auto;
+}

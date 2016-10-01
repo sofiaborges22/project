@@ -1,0 +1,19 @@
+<div class="container">
+	<div class="row result-title">
+	  <div class="col-sm-12">
+	  	<h2>You will start to make a profit when you sell:</h2>
+			<% @break_even.each do |breakeven| %>
+				<% @units_sold = (breakeven.fixed_costs) / ((breakeven.selling_price)-(breakeven.variable_cost)) %>
+			<%end%>
+	    <h2 style='border-radius: 25px; border:2px black solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px;'><%= @units_sold %> units</h2>
+	  </div>
+	</div>
+
+	<div class="row result-info">
+		<div class="col-sm-8">
+			<h4>What's happening here?</h4>
+			<p></p>
+			<%= button_to "Back to form", new_user_problem_break_even_path(@user, @problem, @breakeven), :method => "get", :class => "btn btn-primary" %>
+		</div>
+	</div>
+</div>

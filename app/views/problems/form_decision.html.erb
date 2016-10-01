@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="row problem-title">
+    <div class="col-sm-12">
+      <h2 style='margin: 0 auto; border-radius: 25px; border:2px black solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 20px;'><%= @problem.title %></h2>
+    </div>
+  </div>
+
+  <div class="row add-decision">
+    <div class="col-sm-12">
+      <center><%= button_to "Add a decision", new_user_problem_decision_path(@user, @problem), :method => "get", :class => "btn btn-primary btn-lg"%></center>
+    </div>
+  </div>
+
+  <div class="row info">
+    <div class="col-sm-8">
+      <ul>
+        <% @decision.each do |decision| %>
+          <div class="options" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; font-size:15px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
+          <h3><%=decision.title %></h3>
+            Associated cost: $<%=decision.associated_cost%>
+              <ul>
+                <h5>Favorable market:</h5>
+                  <li>Probability: <%=decision.favorable_probability %>%</li>
+                  <li>Expected financial result: $<%=decision.favorable_result %></li>
+              </ul>
+              <ul>
+                <h5>Unfavorable market:</h5>
+                  <li>Probability: <%=decision.unfavorable_probability%>%</li>
+                  <li>Expected financial result: $<%=decision.unfavorable_result%></li>
+              </ul>          
+            
+              <%= button_to 'Delete', decision_path(decision), 
+                method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+          </div>
+        <%end%>
+      </ul>
+    </div>
+    <div class="btn-group col-sm-4">
+      <%= button_to "Result", result_decision_user_problem_path(@user, @problem), :method => "get", :class => "btn btn-default btn-circle btn-lg" %>
+    </div>
+  </div>
+</div>

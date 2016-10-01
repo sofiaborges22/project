@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  associated_cost: 1
+  favorable_probability: 1
+  unfavorable_probability: 1
+  favorable_result: 1
+  unfavorable_result: 1
+
+two:
+  title: MyString
+  associated_cost: 1
+  favorable_probability: 1
+  unfavorable_probability: 1
+  favorable_result: 1
+  unfavorable_result: 1

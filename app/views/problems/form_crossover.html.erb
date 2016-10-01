@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row problem-title">
+    <div class="col-sm-12">
+      <h2 style='margin: 0 auto; border-radius: 25px; border:2px black solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 20px;'>
+        <%= @problem.title %></h2>
+    </div>
+  </div>
+
+  <div class="row add-decision">
+    <div class="col-sm-12">
+      <center><%= button_to "Add a decision", new_user_problem_crossover_path(@user, @problem), :method => "get", :class => "btn btn-primary btn-lg"%></center>
+    </div>
+  </div>
+
+  <div class="row info">
+    <div class="col-sm-8">
+      <ul>
+        <% @crossover.each do |crossover| %>
+          <div class="options" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; font-size:15px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
+          <h3><%=crossover.title %></h3>
+              <ul>
+
+                <h5>Units to sell:</h5>
+                  <li>$<%=crossover.units%></li>
+                <h5>Fixed cost:</h5>
+                  <li>$<%=crossover.fixed_cost%></li>
+                <h5>Variable cost:</h5>
+                  <li>$<%=crossover.variable_cost.to_f%></li>
+              </ul>       
+            
+              <%= button_to 'Delete', crossover_path(crossover), method: :delete,
+                data: { confirm: 'Are you sure?' } %>
+          </div>
+        <%end%>
+      </ul>
+    </div>
+    <div class="btn-group col-sm-4">
+      <%= button_to "Result", user_problem_crossover_path(@user, @problem, @crossover), :method => "get", :class => "btn btn-default btn-circle btn-lg" %>
+    </div>
+  </div>
+</div>

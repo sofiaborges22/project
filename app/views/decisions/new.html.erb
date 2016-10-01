@@ -1,0 +1,59 @@
+<div class="container">
+  <body>
+    <div class="row">
+      <div class="col-sm-12">
+        <h2>Fill out this form to create a decision option</h2><br>
+        <%= form_for @new_decision, url:user_problem_decisions_path(@user, @problem), html: {class: "form-horizontal"}  do |f|%>
+          
+          <div class="form-group">
+            <%= f.label(:title, "Decision *", class: "col-sm-4 control-label") %>
+            <div class="col-sm-8">
+              <%= f.text_field :title, placeholder:"Give your decision a title", class: "form-control" %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label(:associated_cost, "Associated cost *", class: "col-sm-4 control-label") %>
+            <div class="col-sm-8">
+                <%= f.number_field :associated_cost, placeholder:"What are the expenses associated with this decision?", class: "form-control"  %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label(:favorable_probability, "Probability of a favorable market (%) *", class: "col-sm-4 control-label") %>
+            <div class="col-sm-8">
+              <%= f.number_field :favorable_probability, placeholder:"What are the chances that you have great success?", class: "form-control"  %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label(:unfavorable_probability, "Probability of an unfavorable market (%) *", class: "col-sm-4 control-label") %>
+            <div class="col-sm-8">
+              <%= f.number_field :unfavorable_probability, placeholder:"What are the chances that you have 'okay' success?", class: "form-control"  %>
+            </div>
+          </div>        
+
+          <div class="form-group">
+            <%= f.label(:favorable_result, "Expected financial result if the market is favorable *", class: "col-sm-4 control-label") %>
+            <div class="col-sm-8">
+              <%= f.number_field :favorable_result, placeholder:"If you are very successful, how much profit do you expect?", class: "form-control"  %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label(:unfavorable_result, "Expected financial result if the market is unfavorable *", class: "col-sm-4 control-label") %>
+            <div class="col-sm-8">
+              <%= f.number_field :unfavorable_result, placeholder:"If you aren't, how much profit do you expect?", class: "form-control"  %>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-sm-12">
+              <%= f.submit "Add Decision", class: "btn btn-primary col-sm-12"%>
+            </div>
+          </div>
+        <% end %>
+      </div>  
+    </div>
+  </body>
+</div>

@@ -1,0 +1,16 @@
+<div class="container">
+	<div class="row result-title">
+	  <div class="col-sm-12">
+	  	<h2>The decision you should make is:</h2>
+			
+	    <h2 style='border-radius: 25px; border:2px black solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px;'><%= @lowest_total_cost.title %></h2>
+	  </div>
+	</div>
+
+	<div class="row result-info">
+		<div class="col-sm-8">
+			<h4>Why, you may ask?</h4>
+			<p>Because the decision to * <strong><%= @lowest_total_cost.title %></strong> * will result in the best overall cost for your company. Your total cost will be $<%= (@lowest_total_cost.units * @lowest_total_cost.variable_cost)+@lowest_total_cost.fixed_cost %> and because of your desire to sell <%= @lowest_total_cost.units %>, this is the best option for you.</p>
+		</div>
+	</div>
+</div>

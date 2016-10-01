@@ -1,0 +1,32 @@
+<div class="container">
+	
+<div class="row result-title">
+  <div class="col-sm-12">
+  	<h2>The decision you should make is:</h2>
+		<% @max = 0 %>
+		<% decision_name = "" %>
+		<% @decision.each do |decision| %>
+			<% fav_prob = ((decision.favorable_probability.to_f)/100) %>
+			<% unfav_prob = ((decision.unfavorable_probability.to_f)/100) %>
+			<% favorable = (fav_prob)*(decision.favorable_result.to_f) %>
+			<% unfavorable = (unfav_prob)*(decision.unfavorable_result.to_f) %>
+			<% totalEV = favorable + unfavorable %>
+			<% net_gain = totalEV - decision.associated_cost.to_f %><br>
+
+			<% if @max < net_gain %>
+				<% @max = net_gain%>
+				<% @decision_name = decision.title %>
+			<% end %>	
+		<%end%>
+    <h2 style='border-radius: 25px; border:2px black solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px;'><%= @decision_name %></h2>
+  </div>
+</div>
+
+<div class="row result-info">
+	<div class="col-sm-8">
+		<h4>Why, you may ask?</h4>
+		<p>Because the decision to * <strong><%= @decision_name %></strong> * will result in the highest possible net gain. Your net gain will be an average of $<%= @max %>. Despite how high the initial costs, by analyzing the expected value along with those costs, this would be the most efficient option.</p>
+	</div>
+</div>
+
+</div>
