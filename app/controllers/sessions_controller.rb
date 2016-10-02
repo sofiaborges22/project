@@ -6,17 +6,22 @@ class SessionsController < ApplicationController
 	end
 
 	def create
-		@user = User.find_by(username: params[:username])
-		if @user && @user.authenticate(params[:password])
-			session[:user_id] = @user.id
-			redirect_to user_path(@user)
+		user = User.find_by(username: params[:username])
+		if user && user.authenticate(params[:password])
+			if params[:remember_me]
+		      cookies.permanent[:auth_token] = user.auth_token
+		    else
+		      cookies[:auth_token] = user.auth_token
+		    end
+			redirect_to user_path(user), :notice => "Logged in!"
 		else 
-			redirect_to '/'
+			flash.now.alert = "Invalid email or password"
+			redirect_to root_url
 		end
 	end
 
 	def destroy
-		session.clear
-		redirect_to '/'
+		cookies.delete(:auth_token)
+		redirect_to root_url, :notice => "Logged out!"
 	end
 end

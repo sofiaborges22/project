@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   
   resources :decisions, only: [:destroy]
   resources :crossovers, only: [:destroy]
+  resources :password_resets
 
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
