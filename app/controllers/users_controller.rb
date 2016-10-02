@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 		@name = current_user ? current_user.name : "User"
 		@users = current_user
 		@user = User.find_by(id: params[:id])
+		@new_problem = Problem.new
 		@problems = Problem.all
 	end
 
