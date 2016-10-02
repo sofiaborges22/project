@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160930095852) do
+ActiveRecord::Schema.define(version: 20161002104724) do
 
   create_table "break_evens", force: :cascade do |t|
     t.integer  "fixed_costs"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20160930095852) do
     t.string   "password_digest"
     t.string   "role"
     t.integer  "problem_id"
+    t.string   "auth_token"
     t.index ["problem_id"], name: "index_users_on_problem_id"
   end
 
