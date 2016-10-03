@@ -38,8 +38,20 @@ class ProblemsController < ApplicationController
 	end
 
 	def result_decision
+		@user = User.find_by(id: params[:user_id])
 		@problem = Problem.find_by(id: params[:id])
 		@decision = @problem.decisions.all
+
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = ResultDecisionPdf.new(@problem, @decision)
+				send_data pdf.render, filename: "problem_#{@problem.title}.pdf",
+				                      type: "application/pdf",
+				                      disposition: "inline"
+			end
+		end
+
 	end
 
 	def form_crossover
