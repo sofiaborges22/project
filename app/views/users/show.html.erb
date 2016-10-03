@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="row profile-title">
+	<div class="row profile-title" style="margin:none;">
 		<div class="col-sm-12">
 			<h1><%= @name %>'s Profile</h1>
 		</div>
@@ -7,57 +7,28 @@
 		<div class="col-sm-6">
 			<h4 style="display: inline-block; float: left;">
 				With what business problem may we assist you with?
-					<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#problemModal">
+					<button type="button" class="btn btn-primary" style="margin-top:30px; background-color: #5bdb99; border:none;" data-toggle="modal" data-target="#problemModal">
 	                    Add a business problem
 	                </button>
-
-	                <div class="modal fade" id="problemModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-				      <div class="modal-dialog" role="document">
-				        <div class="modal-content">
-				          <div class="modal-header">
-				            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-				            <h4 class="modal-title" id="myModalLabel" style="text-align:center">Add a business problem you're facing</h4>
-				          </div>
-				          <div class="modal-body" style="text-align:center; margin:10px;">
-
-				              <div class="row">
-				                <div class="col-md-12">
-				                  <%= form_for @new_problem, url: user_problems_path(@user, @new_problem), html: { method: :post } do |f|%>
-
-				                    <%= f.label(:title, "Title *", class: "col-sm-4 control-label") %>
-				                    <%= f.text_field :title, placeholder:"Give your problem a title", class: "form-control" %>
-				      
-				                    <%= f.label(:description, "Description *", class: "col-sm-4 control-label") %>
-				                    <%= f.text_field :description, placeholder:"Describe your problem a little", class: "form-control" %>
-
-				                    <%= f.label(:category, "Category *", class: "col-sm-4 control-label") %>
-				                    <%= f.select(:category, ['Decision Tree Tool','Break Even Analysis','Crossover Analysis'])%><br>
-				                  
-				                    <%= f.submit "Add Problem", class: "btn btn-primary col-sm-12"%>
-				                    <% end %>
-				                </div>
-				              </div>
-				          </div>
-				        </div>
-				      </div>
-				    </div>
+	                <%= render 'users/problem_modal' %> 
 			</h4>
 		</div>
 	</div>
+
 	<hr>
 
 	<div class="row category-list">
-		<div class="col-sm-6">
-			<h4>Tool Categories:</h4>
+		<div class="col-sm-12">
+			<h4>Click on the categories below to see your business problems:</h4>
 
-			<nav>
-	              <p role="presentation" class="tool-item"><button class="btn btn-primary decision-tree-btn" style="margin:10px;">Decision Tree Tool</button></p>
-	              <p role="presentation" class="tool-item"><button class="btn btn-primary break-even-btn" style="margin:10px;">Break Even Analysis</button></p>
-	              <p role="presentation" class="tool-item"><button class="btn btn-primary crossover-btn" style="margin:10px;">Crossover Analysis</button></p>
+			<nav class="col-sm-12" style="display:inline-block;">
+	              <button class="btn btn-primary decision-tree-btn categories" style="margin:45px;">Decision Tree Tool</button>
+	              <button class="btn btn-primary break-even-btn categories" style="margin:45px;">Break Even Analysis</button>
+	              <button class="btn btn-primary crossover-btn categories" style="margin:45px;">Crossover Analysis</button>
 	        </nav>
 		</div>
 
-		<div id="problems" class="col-sm-6" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
+		<div id="problems" class="col-sm-6" style='border-radius: 25px; border:2px #5bdb99 solid; margin:10px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
 		</div>
 	</div>
 </div>

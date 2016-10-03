@@ -151,13 +151,15 @@
           </nav>
         </div>
       </div>
-      <div class="row notices">
-        <div class="col-sm-12">
-          <% if flash[:notice] %>
-            <div class="notice"><%= flash[:notice] %></div>
-          <% end %>
+      <% if @user.present? == false %>
+        <div class="row notices">
+          <div class="col-sm-12">
+            <% if flash[:notice] %>
+              <div class="notice"><%= flash[:notice] %></div>
+            <% end %>
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>  
 
     <%= yield %>

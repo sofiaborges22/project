@@ -16,7 +16,17 @@ class CrossoversController < ApplicationController
 		@crossover = @problem.crossovers.all
 
 		@lowest_total_cost = @crossover.min_by do |crossover|
-			(crossover.units * crossover.variable_cost)+crossover.fixed_cost
+			@result_total_cost = (crossover.units * crossover.variable_cost)+crossover.fixed_cost
+		end
+
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = ResultCrossoverPdf.new(@problem, @crossover, @lowest_total_cost, @result_total_cost)
+				send_data pdf.render, filename: "problem_#{@problem.title}.pdf",
+				                      type: "application/pdf",
+				                      disposition: "inline"
+			end
 		end
 	end
 

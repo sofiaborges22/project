@@ -14,6 +14,20 @@ class BreakEvensController < ApplicationController
 		@user = User.find_by(id: params[:user_id])
 		@problem = Problem.find_by(id: params[:problem_id])
 		@break_even = @problem.break_evens.all
+
+		@break_even.each do |breakeven|
+			@units_sold = (breakeven.fixed_costs) / ((breakeven.selling_price)-(breakeven.variable_cost)) 
+		end
+
+		respond_to do |format|
+			format.html
+			format.pdf do
+				pdf = ResultBreakEvenPdf.new(@problem, @break_even, @units_sold)
+				send_data pdf.render, filename: "problem_#{@problem.title}.pdf",
+				                      type: "application/pdf",
+				                      disposition: "inline"
+			end
+		end
 	end
 
 	def create

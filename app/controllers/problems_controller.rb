@@ -40,12 +40,32 @@ class ProblemsController < ApplicationController
 	def result_decision
 		@user = User.find_by(id: params[:user_id])
 		@problem = Problem.find_by(id: params[:id])
-		@decision = @problem.decisions.all
+		@decision = @problem.decisions
+
+		@max = 0
+		@decision_name = ""
+
+		@decision.each do |decision|
+			fav_prob = ((decision.favorable_probability.to_f)/100)
+			unfav_prob = ((decision.unfavorable_probability.to_f)/100)
+			@favorable = (fav_prob)*(decision.favorable_result.to_f)
+			@unfavorable = (unfav_prob)*(decision.unfavorable_result.to_f)
+			@totalEV = @favorable + @unfavorable
+			@net_gain = @totalEV - decision.associated_cost.to_f
+
+			if @max < @net_gain
+				@max = @net_gain
+				@decision_name = decision.title
+			end
+		end
+
+
+		
 
 		respond_to do |format|
 			format.html
 			format.pdf do
-				pdf = ResultDecisionPdf.new(@problem, @decision)
+				pdf = ResultDecisionPdf.new(@problem, @decision, @decision_name, @max)
 				send_data pdf.render, filename: "problem_#{@problem.title}.pdf",
 				                      type: "application/pdf",
 				                      disposition: "inline"
