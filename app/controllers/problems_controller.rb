@@ -65,7 +65,7 @@ class ProblemsController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.pdf do
-				pdf = ResultDecisionPdf.new(@problem, @decision, @decision_name, @max)
+				pdf = ResultDecisionPdf.new(@problem, @decision, @decision_name, @max, view_context)
 				send_data pdf.render, filename: "problem_#{@problem.title}.pdf",
 				                      type: "application/pdf",
 				                      disposition: "inline"

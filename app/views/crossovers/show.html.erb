@@ -9,10 +9,9 @@
 
 	<div class="row result-info">
 		<div class="col-sm-8">
-			<h3>Why, you may ask?</h3>
 
-			<p><h4>Because the decision to * <strong><%= @lowest_total_cost.title %></strong> * will result in the best overall cost for your company. Your total cost will be $<%= (@lowest_total_cost.units * @lowest_total_cost.variable_cost)+@lowest_total_cost.fixed_cost %> and because of your desire to sell <%= @lowest_total_cost.units %>, this is the best option for you.</h4></p>
-
+			<p><h4>Because the decision to * <strong><%= @lowest_total_cost.title %></strong> * will result in the best overall cost for your company. Your total cost will be <%= number_to_currency((@lowest_total_cost.units * @lowest_total_cost.variable_cost)+@lowest_total_cost.fixed_cost) %> and because of your desire to sell <%= @lowest_total_cost.units %>, this is the best option for you.</h4></p>
+			
 			<p><h4>Crossover Analysis is useful for deciding which decision would be the most cost efficient. By evaluating the total cost of each decision, it is always best to follow through with the decision that has the <i>lowest</i> total cost.</h4></p>
 
 			<p><%= link_to "Download analysis in PDF", user_problem_crossover_path(@user, @problem, @crossover, format: "pdf")%></p>
@@ -23,8 +22,8 @@
 		<table class="table table-striped table-bordered table-hover">
 	  		<tr>
 			    <th>Decisions &nbsp; &nbsp; &nbsp;</th>
-			    <th>Total Cost</th>
 			    <th>Units</th>
+			    <th>Total Cost</th>
 			    <th>Fixed Cost</th>
 			    <th>Variable Cost</th>
 			  </tr>
@@ -33,10 +32,10 @@
 
 				  <tr>
 				    <td><%= crossover.title %></td>
-				    <td>$<%= (crossover.units*crossover.variable_cost) + crossover.fixed_cost %></td>
 				    <td><%= crossover.units %></td>
-				    <td>$<%= crossover.fixed_cost %></td>
-				    <td>$<%= crossover.variable_cost %></td>
+				    <td><%= number_to_currency((crossover.units*crossover.variable_cost) + crossover.fixed_cost) %></td>
+				    <td><%= number_to_currency(crossover.fixed_cost) %></td>
+				    <td><%= number_to_currency(crossover.variable_cost) %></td>
 				  </tr>
 			  <% end %>
 		</table>

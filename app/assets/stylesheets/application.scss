@@ -32,7 +32,7 @@
 }
 
 a:link {
-	color: black;
+	color: white;
 }
 
 a:hover {
@@ -113,4 +113,30 @@ a:active {
 
 .problem-btn {
 	margin: 10px;
+}
+
+#decision-hover {
+	display: none;
+	font-size: 12px;
+}
+.decision-tree-btn:hover #decision-hover {
+	display:block
+}
+
+#breakeven-hover {
+	display: none;
+	font-size: 12px;
+}
+
+.break-even-btn:hover #breakeven-hover {
+	display:block
+}
+
+#crossover-hover {
+	display: none;
+	font-size: 12px;
+}
+
+.crossover-btn:hover #crossover-hover {
+	display:block;
 }

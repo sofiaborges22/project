@@ -15,7 +15,7 @@
 	<div class="row result-info">
 		<div class="col-sm-8">
 			<h3>Why, you may ask?</h3>
-			<p><h4>Because the decision to * <strong><%= @decision_name %></strong> * will result in the highest possible net gain. Your net gain will be an average of $<%= @max %>. Despite how high the initial costs, by analyzing the expected value along with those costs, this would be the most efficient option.</h4></p>
+			<p><h4>Because the decision to * <strong><%= @decision_name %></strong> * will result in the highest possible net gain. Your net gain will be an average of <%= number_to_currency(@max)%>. Despite how high the initial costs, by analyzing the expected value along with those costs, this would be the most efficient option.</h4></p>
 			<p><%= link_to "Download analysis in PDF", result_decision_user_problem_path(@user, @problem, format: "pdf")%></p>
 		</div>
 	</div>
@@ -36,8 +36,8 @@
 
 				  <tr>
 				    <td><%= decision.title %></td>
-				    <td>$<%= ((decision.favorable_probability.to_f/100) * decision.favorable_result.to_f) + ((decision.unfavorable_probability.to_f/100) * decision.unfavorable_result.to_f)%></td>
-				    <td>$<%= (((decision.favorable_probability.to_f/100) * decision.favorable_result.to_f) + ((decision.unfavorable_probability.to_f/100) * decision.unfavorable_result.to_f)) - decision.associated_cost.to_f %></td>
+				    <td><%= number_to_currency(((decision.favorable_probability.to_f/100) * decision.favorable_result.to_f) + ((decision.unfavorable_probability.to_f/100) * decision.unfavorable_result.to_f))%></td>
+				    <td><%= number_to_currency((((decision.favorable_probability.to_f/100) * decision.favorable_result.to_f) + ((decision.unfavorable_probability.to_f/100) * decision.unfavorable_result.to_f)) - decision.associated_cost.to_f) %></td>
 				  </tr>
 			  <% end %>
 		</table>

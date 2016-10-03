@@ -16,7 +16,10 @@
 			<p><h4>This means that your company will break even when it sells <%= @units_sold %> units. Once, this amount of units sold has been reached, your company will begin to make a profit.</h4></p>
 			<p><%= link_to "Download analysis in PDF", user_problem_break_even_path(@user, @problem, @break_even, format: "pdf")%></p>
 			<br>
-			<%= button_to "Back to form", new_user_problem_break_even_path(@user, @problem, @breakeven), :method => "get", :class => "btn btn-primary" %>
 		</div>
+	</div>
+
+	<div class="col-sm-3" style="margin-bottom: 30px;">
+		<%= button_to "Back to form", new_user_problem_break_even_path(@user, @problem, @breakeven), :method => "get", :class => "btn btn-primary"%>
 	</div>
 </div>

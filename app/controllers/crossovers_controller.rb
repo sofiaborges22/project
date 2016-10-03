@@ -22,7 +22,7 @@ class CrossoversController < ApplicationController
 		respond_to do |format|
 			format.html
 			format.pdf do
-				pdf = ResultCrossoverPdf.new(@problem, @crossover, @lowest_total_cost, @result_total_cost)
+				pdf = ResultCrossoverPdf.new(@problem, @crossover, @lowest_total_cost, @result_total_cost, view_context)
 				send_data pdf.render, filename: "problem_#{@problem.title}.pdf",
 				                      type: "application/pdf",
 				                      disposition: "inline"

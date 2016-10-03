@@ -9,23 +9,23 @@
   <div class="row info">
     <%= form_for @new_break_even, url:user_problem_break_evens_path(@user, @problem, @break_even) do |f|%>
       <div class="col-sm-8"> 
-        <div class="form-horizontal">
+        <div class="form-horizontal" style="margin-bottom: 50px;">
           <div class="form-group">
-            <%= f.label(:fixed_costs, "Fixed costs *", class: "col-sm-2 control-label") %>
+            <%= f.label(:fixed_costs, "Fixed costs *", class: "col-sm-3 control-label") %>
             <div class="col-sm-8">
                 <%= f.number_field :fixed_costs, placeholder:"What are the fixed costs?", class: "form-control"  %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label(:selling_price, "Selling price *", class: "col-sm-2 control-label") %>
+            <%= f.label(:selling_price, "Selling price *", class: "col-sm-3 control-label") %>
             <div class="col-sm-8">
                 <%= f.number_field :selling_price, placeholder:"How much are you selling each item for?", class: "form-control"  %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label(:variable_cost, "Variable Cost *", class: "col-sm-2 control-label") %>
+            <%= f.label(:variable_cost, "Variable Cost *", class: "col-sm-3 control-label") %>
             <div class="col-sm-8">
                 <%= f.number_field :variable_cost, placeholder:"How much does it cost to create each individual item?", class: "form-control"  %>
             </div>
