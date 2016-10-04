@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :crossovers, only: [:destroy]
   resources :password_resets
 
+
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
