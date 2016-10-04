@@ -34,16 +34,16 @@
           </div>        
 
           <div class="form-group">
-            <%= f.label(:favorable_result, "Expected financial result if the market is favorable *", class: "col-sm-4 control-label") %>
+            <%= f.label(:favorable_result, "Expected revenue if the market is favorable *", class: "col-sm-4 control-label") %>
             <div class="col-sm-8">
-              <%= f.number_field :favorable_result, placeholder:"If you are very successful, how much profit do you expect?", class: "form-control"  %>
+              <%= f.number_field :favorable_result, placeholder:"If you are very successful, how much revenue do you expect?", class: "form-control"  %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label(:unfavorable_result, "Expected financial result if the market is unfavorable *", class: "col-sm-4 control-label") %>
+            <%= f.label(:unfavorable_result, "Expected revenue if the market is unfavorable *", class: "col-sm-4 control-label") %>
             <div class="col-sm-8">
-              <%= f.number_field :unfavorable_result, placeholder:"If you aren't, how much profit do you expect?", class: "form-control"  %>
+              <%= f.number_field :unfavorable_result, placeholder:"If you aren't, how much revenue do you expect?", class: "form-control"  %>
             </div>
           </div>
 

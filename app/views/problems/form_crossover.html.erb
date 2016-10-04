@@ -18,18 +18,22 @@
         <% @crossover.each do |crossover| %>
           <div class="options" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; font-size:15px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
           <h3><%=crossover.title %></h3>
-              <ul>
+              <div class="col-sm-12">
+                <ul style="margin-left:-25px; padding:none;">
+                  <h5><strong>Units to sell:</strong></h5>
+                    <li><%=crossover.units%></li>
+                  <h5><strong>Fixed cost:</strong></h5>
+                    <li><%=number_to_currency(crossover.fixed_cost)%></li>
+                  <h5><strong>Variable cost:</strong></h5>
+                    <li><%=number_to_currency(crossover.variable_cost.to_f)%></li>
+                </ul>
+              </div>            
 
-                <h5>Units to sell:</h5>
-                  <li>$<%=crossover.units%></li>
-                <h5>Fixed cost:</h5>
-                  <li>$<%=crossover.fixed_cost%></li>
-                <h5>Variable cost:</h5>
-                  <li>$<%=crossover.variable_cost.to_f%></li>
-              </ul>       
-            
-              <%= button_to 'Delete', crossover_path(crossover), method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+              <%= button_to 'Delete', crossover_path(crossover), 
+                method: :delete,
+                data: { confirm: 'Are you sure?' }, 
+                style: "margin:9px; float:right;", 
+                class: "btn btn-primary btn-xs"  %>
           </div>
         <%end%>
       </ul>

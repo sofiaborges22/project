@@ -17,21 +17,23 @@
         <% @decision.each do |decision| %>
           <div class="options" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; font-size:15px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
           <h3><%=decision.title %></h3>
-            Associated cost: $<%=decision.associated_cost%>
+            <i>Associated cost:</i> <%=number_to_currency(decision.associated_cost)%>
               <ul>
-                <h5>Favorable market:</h5>
+                <h5><strong>Favorable market:</strong></h5>
                   <li>Probability: <%=decision.favorable_probability %>%</li>
-                  <li>Expected financial result: $<%=decision.favorable_result %></li>
+                  <li>Expected financial result: <%=number_to_currency(decision.favorable_result)%></li>
               </ul>
               <ul>
-                <h5>Unfavorable market:</h5>
+                <h5><strong>Unfavorable market:</strong></h5>
                   <li>Probability: <%=decision.unfavorable_probability%>%</li>
-                  <li>Expected financial result: $<%=decision.unfavorable_result%></li>
+                  <li>Expected financial result: <%=number_to_currency(decision.unfavorable_result)%></li>
               </ul>          
             
               <%= button_to 'Delete', decision_path(decision), 
                 method: :delete,
-                data: { confirm: 'Are you sure?' } %>
+                data: { confirm: 'Are you sure?' }, 
+                style: "margin:6px;", 
+                class: "btn btn-primary btn-xs" %>
           </div>
         <%end%>
       </ul>

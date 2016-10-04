@@ -110,10 +110,11 @@
       </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid" style="margin:0;">
       <div class="row header">
         <div class="col-sm-8">
-          <h1 class="site-title">PROJECT</h1>
+          <h1 class="site-title" style="font-size:80px; margin:0; padding:0; margin-top:-20px;"><strong>max</strong></h1>
+
         </div>
         <div class="col-sm-3">
           <br>
@@ -150,15 +151,6 @@
           </nav>
         </div>
       </div>
-      <% if @user.present? == false %>
-        <div class="row notices">
-          <div class="col-sm-12">
-            <% if flash[:notice] %>
-              <div class="notice"><%= flash[:notice] %></div>
-            <% end %>
-          </div>
-        </div>
-      <% end %>
     </div>  
 
     <%= yield %>

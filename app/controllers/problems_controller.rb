@@ -1,4 +1,5 @@
 class ProblemsController < ApplicationController
+
 	def index
 		problems = Problem.all
 		render json: problems
@@ -32,9 +33,11 @@ class ProblemsController < ApplicationController
 	end
 
 	def form_decision
-		@user = User.find_by(id: session[:user_id])
+
+		@user = User.find_by(id: params[:user_id])
 		@problem = Problem.find_by(id: params[:id])
 		@decision = @problem.decisions.all
+		
 	end
 
 	def result_decision
@@ -59,9 +62,6 @@ class ProblemsController < ApplicationController
 			end
 		end
 
-
-		
-
 		respond_to do |format|
 			format.html
 			format.pdf do
@@ -75,7 +75,7 @@ class ProblemsController < ApplicationController
 	end
 
 	def form_crossover
-		@user = User.find_by(id: session[:user_id])
+		@user = User.find_by(id: params[:user_id])
 		@problem = Problem.find_by(id: params[:id])
 		@crossover = @problem.crossovers.all
 	end

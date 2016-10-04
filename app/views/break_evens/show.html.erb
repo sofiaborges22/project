@@ -4,7 +4,7 @@
 
 	  	<h2>You will start to make a profit when you sell:</h2>
 
-	    <h2 style='border-radius: 25px; border:2px #5bdb99 solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px;'><%= @units_sold %> units</h2>
+	    <h2 style='border-radius: 25px; border:2px #5bdb99 solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px;'><%= @units_sold.to_i %> units</h2>
 
 	  </div>
 	</div>
@@ -13,8 +13,8 @@
 		<div class="col-sm-9">
 			<h3>What's happening here?</h3><br>
 			<p><h4>The break even point (BEP) represents the amount of units that is required to cover total costs, consisting of both fixed and variable costs to your company. It allows for you to identify the minimum required goal your company needs to achieve. At the break even point, profit is still zero, however, all your costs have been "paid" for.</h4></p>
-			<p><h4>This means that your company will break even when it sells <%= @units_sold %> units. Once, this amount of units sold has been reached, your company will begin to make a profit.</h4></p>
-			<p><%= link_to "Download analysis in PDF", user_problem_break_even_path(@user, @problem, @break_even, format: "pdf")%></p>
+			<p><h4>This means that your company will break even when it sells <%= @units_sold.to_i %> units. Once, this amount of units sold has been reached, your company will begin to make a profit.</h4></p>
+			<p><%= link_to "Download analysis in PDF", user_problem_break_even_path(@user, @problem, @break_even, format: "pdf"), style: "color:black;"%></p>
 			<br>
 		</div>
 	</div>

@@ -20,7 +20,7 @@ class ResultCrossoverPdf < Prawn::Document
 	def result_items
 		move_down 20
 		text "The decision we should make is:"
-		text  "#{@lowest_total_cost.title}", :color => "4169E1", size: 15, style: :italic
+		text  "#{@lowest_total_cost.title}", :color => "5bdb99", size: 15, style: :italic
 		move_down 10
 		text "This will result in the best overall cost for our company. Our total cost will be #{price(@result_total_cost)} and because of our desire to sell #{@lowest_total_cost.units}, this is the best option for us."
 	end
