@@ -69,9 +69,18 @@ a:active {
 }
 
 .pre-footer {
-	height: 351px;
+	height: 300px;
 	color: white;
-	background-color: #aaa;
+	background-image: url("congruent_pentagon.png");
+}
+
+.start-btn {
+	background-color:none;
+	color: #292727;
+	font-size: 80px;
+	margin-top:70px;
+	border-radius: 25px;
+	border-color: white;
 }
 
 .footer {
@@ -125,15 +134,16 @@ a:active {
 
 #decision-hover {
 	display: none;
-	font-size: 12px;
+	font-size: 11px;
 }
+
 .decision-tree-btn:hover #decision-hover {
 	display:block
 }
 
 #breakeven-hover {
 	display: none;
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .break-even-btn:hover #breakeven-hover {
@@ -142,7 +152,7 @@ a:active {
 
 #crossover-hover {
 	display: none;
-	font-size: 12px;
+	font-size: 11px;
 }
 
 .crossover-btn:hover #crossover-hover {

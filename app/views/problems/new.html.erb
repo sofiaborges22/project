@@ -7,21 +7,21 @@
 			    
 			    <div class="form-group">
 			      <%= f.label(:title, "Title *", class: "col-sm-4 control-label") %>
-			      <div class="col-sm-4" style="margin:2px;">
+			      <div class="col-sm-4" style="margin:4px;">
 			        <%= f.text_field :title, placeholder:"Give your problem a title", class: "form-control" %>
 			      </div>
 			    </div>
 
 			    <div class="form-group">
 			      <%= f.label(:description, "Description *", class: "col-sm-4 control-label") %>
-			      <div class="col-sm-4" style="margin:2px;">
+			      <div class="col-sm-4" style="margin:4px;">
 			        <%= f.text_field :description, placeholder:"Describe your problem a little", class: "form-control" %>
 			      </div>
 			    </div>
 
 			    <div class="form-group">
 			      <%= f.label(:category, "Category *", class: "col-sm-4 control-label") %>
-			      <div class="col-sm-4" style="margin:2px;">
+			      <div class="col-sm-4" style="margin:4px;">
 			        <%= f.select(:category, ['Decision Tree Tool','Break Even Analysis','Crossover Analysis'])%><br>
 			      </div>
 			    </div>

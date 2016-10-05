@@ -16,7 +16,7 @@
 		<div class="col-sm-8">
 			<h3>Why, you may ask?</h3>
 			<p><h4>Because the decision to * <strong><%= @decision_name %></strong> * will result in the highest possible net gain. Your net gain will be an average of <%= number_to_currency(@max)%>. Despite how high the initial costs, by analyzing the expected value along with those costs, this would be the most efficient option.</h4></p>
-			<p><%= link_to "Download analysis in PDF", result_decision_user_problem_path(@user, @problem, format: "pdf")%></p>
+			<p><%= link_to "Download analysis in PDF", result_decision_user_problem_path(@user, @problem, format: "pdf"), style: "color:black;"%></p>
 		</div>
 	</div>
 	<div class="table-responsive">
