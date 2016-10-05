@@ -20,7 +20,7 @@ test:
   <<: *default
   database: maxmanager_text
 
-production:
-  <<: *default
-  database: maxmanager_production
-  password: <%= ENV['Yellow11218'] %>
+# production:
+#   <<: *default
+#   database: maxmanager_production
+#   password: <%= ENV['Yellow11218'] %>
