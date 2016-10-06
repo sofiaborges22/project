@@ -102,4 +102,11 @@ $(function(){
 			}			
 		})
 	});
+
+	$('.already-user-btn').on('click', function(){
+		$("#signUpModal").modal('hide');
+	})
 })
+
+
+
