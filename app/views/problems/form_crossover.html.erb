@@ -1,24 +1,24 @@
 <div class="container">
   <div class="row problem-title">
-    <div class="col-sm-12">
+    <div class="col-xs-12">
       <h2 style='margin: 0 auto; border-radius: 25px; border:2px black solid; font-size:26px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 20px;'>
         <%= @problem.title %></h2>
     </div>
   </div>
 
   <div class="row add-decision">
-    <div class="col-sm-12">
+    <div class="col-xs-12">
       <center><%= button_to "Add a decision", new_user_problem_crossover_path(@user, @problem), :method => "get", :class => "btn btn-primary btn-lg"%></center>
     </div>
   </div>
 
-  <div class="row info">
-    <div class="col-sm-8">
+  <div class="row info" style="height:300px;">
+    <div class="col-xs-8">
       <ul>
         <% @crossover.each do |crossover| %>
           <div class="options" style='border-radius: 25px; border:2px #5bdb99 solid; background-color: #5bdb99; margin:10px; font-size:15px; width:fit-content; width:-webkit-fit-content; width:-moz-fit-content; padding: 10px; display:inline-block;'>
           <h3><%=crossover.title %></h3>
-              <div class="col-sm-12">
+              <div class="col-xs-12">
                 <ul style="margin-left:-25px; padding:none;">
                   <h5><strong>Units to sell:</strong></h5>
                     <li><%=crossover.units%></li>
@@ -38,7 +38,7 @@
         <%end%>
       </ul>
     </div>
-    <div class="btn-group col-sm-4">
+    <div class="btn-group col-xs-4">
       <%= button_to "Result", user_problem_crossover_path(@user, @problem, @crossover), :method => "get", :class => "btn btn-default btn-circle btn-lg" %>
     </div>
   </div>

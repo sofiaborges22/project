@@ -1,0 +1,42 @@
+<div class="container-fluid" style="margin:0;">
+  <div class="row header">
+    <div class="col-sm-8">
+      <h1 class="site-title" style="font-size:80px; margin:0; padding:0; margin-top:-20px;"><strong>max</strong></h1>
+
+    </div>
+    <div class="col-sm-3">
+      <br>
+      <nav>
+        <ul class="menu">
+          <li role="presentation" class="active menu-item"><a href="/">Home</a></li>
+          <li role="presentation" class="menu-item"><a href="http://demo.fabthemes.com/revera/about">About</a></li>
+          <li role="presentation" class="menu-item"><a href="http://demo.fabthemes.com/revera/sample-page-2">Contact</a></li>
+
+          <% if @user.present? %>
+            <li role="presentation" class="menu-item">
+              <%= button_to "Profile", "/users/#{@user.id}", :method => "get", :class => "btn btn-primary btn-xs" %>
+            </li>
+          <% else %>
+            <li role="presentation" class="menu-item">
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signUpModal">
+                Sign Up
+              </button>
+            </li>
+          <% end %>
+
+          <% if @user.present? %>
+            <li role="presentation" class="menu-item">
+              <%= button_to "Log out", "/logout", :method => :delete, :class => "btn btn-primary btn-xs" %>
+            </li>
+          <% else %>
+            <li role="presentation" class="menu-item">
+              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#logInModal">
+                Log In
+              </button>
+            </li>
+          <% end %>                
+        </ul>
+      </nav>
+    </div>
+  </div>
+</div>

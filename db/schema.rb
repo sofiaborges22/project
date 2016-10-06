@@ -10,18 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161002105110) do
+ActiveRecord::Schema.define(version: 20161006124703) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "break_evens", force: :cascade do |t|
     t.integer  "fixed_costs"
-    t.integer  "selling_price"
+    t.float    "selling_price"
     t.float    "variable_cost"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
     t.integer  "problem_id"
-    t.index ["problem_id"], name: "index_break_evens_on_problem_id"
-    t.index ["user_id"], name: "index_break_evens_on_user_id"
+    t.index ["problem_id"], name: "index_break_evens_on_problem_id", using: :btree
+    t.index ["user_id"], name: "index_break_evens_on_user_id", using: :btree
   end
 
   create_table "crossovers", force: :cascade do |t|
@@ -33,8 +36,8 @@ ActiveRecord::Schema.define(version: 20161002105110) do
     t.datetime "updated_at",    null: false
     t.integer  "problem_id"
     t.integer  "user_id"
-    t.index ["problem_id"], name: "index_crossovers_on_problem_id"
-    t.index ["user_id"], name: "index_crossovers_on_user_id"
+    t.index ["problem_id"], name: "index_crossovers_on_problem_id", using: :btree
+    t.index ["user_id"], name: "index_crossovers_on_user_id", using: :btree
   end
 
   create_table "decisions", force: :cascade do |t|
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 20161002105110) do
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.integer  "problem_id"
-    t.index ["problem_id"], name: "index_decisions_on_problem_id"
+    t.index ["problem_id"], name: "index_decisions_on_problem_id", using: :btree
   end
 
   create_table "problems", force: :cascade do |t|
@@ -57,7 +60,7 @@ ActiveRecord::Schema.define(version: 20161002105110) do
     t.integer  "user_id"
     t.string   "description"
     t.string   "category"
-    t.index ["user_id"], name: "index_problems_on_user_id"
+    t.index ["user_id"], name: "index_problems_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20161002105110) do
     t.string   "auth_token"
     t.string   "password_reset_token"
     t.datetime "password_reset_sent_at"
-    t.index ["problem_id"], name: "index_users_on_problem_id"
+    t.index ["problem_id"], name: "index_users_on_problem_id", using: :btree
   end
 
 end

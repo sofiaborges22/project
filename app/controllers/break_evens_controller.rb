@@ -16,7 +16,9 @@ class BreakEvensController < ApplicationController
 		@break_even = @problem.break_evens.all
 
 		@break_even.each do |breakeven|
-			@units_sold = (breakeven.fixed_costs) / ((breakeven.selling_price)-(breakeven.variable_cost)) 
+			if breakeven.fixed_costs != nil && breakeven.variable_cost != nil
+				@units_sold = (breakeven.fixed_costs) / ((breakeven.selling_price) - (breakeven.variable_cost)) 
+			end
 		end
 
 		respond_to do |format|

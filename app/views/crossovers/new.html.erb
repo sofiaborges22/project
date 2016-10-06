@@ -1,41 +1,41 @@
 <div class="container">
   <body>
     <div class="row">
-      <div class="col-sm-12">
+      <div class="col-xs-12">
         <h2>Fill out this form to create a decision option</h2><br>
         <%= form_for @new_crossover, url:user_problem_crossovers_path(@user, @problem), html: {class: "form-horizontal"}  do |f|%>
           
           <div class="form-group">
-            <%= f.label(:title, "Decision *", class: "col-sm-4 control-label") %>
-            <div class="col-sm-8">
+            <%= f.label(:title, "Decision *", class: "col-xs-4 control-label") %>
+            <div class="col-xs-8">
               <%= f.text_field :title, placeholder:"Give your decision a title", class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label(:units, "Units *", class: "col-sm-4 control-label") %>
-            <div class="col-sm-8">
-                <%= f.number_field :units, placeholder:"How many units do you wish to sell?", class: "form-control"  %>
+            <%= f.label(:units, "Units *", class: "col-xs-4 control-label") %>
+            <div class="col-xs-8">
+                <%= f.number_field :units, placeholder:"* Each decision must have the same amount of units! * How many units do you wish to sell?", class: "form-control"  %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label(:fixed_cost, "Fixed costs *", class: "col-sm-4 control-label") %>
-            <div class="col-sm-8">
+            <%= f.label(:fixed_cost, "Fixed costs *", class: "col-xs-4 control-label") %>
+            <div class="col-xs-8">
               <%= f.number_field :fixed_cost, placeholder:"What are the fixed costs for this decision?", class: "form-control"  %>
             </div>
           </div>
 
           <div class="form-group">
-            <%= f.label(:variable_cost, "Variable cost *", class: "col-sm-4 control-label") %>
-            <div class="col-sm-8">
+            <%= f.label(:variable_cost, "Variable cost *", class: "col-xs-4 control-label") %>
+            <div class="col-xs-8">
               <%= f.number_field :variable_cost, step: :any, placeholder:"What are the variable costs per unit?", class: "form-control"  %>
             </div>
           </div>        
 
           <div class="form-group">
-            <div class="col-sm-12">
-              <%= f.submit "Add Decision", class: "btn btn-primary col-sm-12"%>
+            <div class="col-xs-12">
+              <%= f.submit "Add Decision", class: "btn btn-primary col-xs-12"%>
             </div>
           </div>
         <% end %>

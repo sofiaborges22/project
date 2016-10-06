@@ -17,8 +17,10 @@ class UsersController < ApplicationController
 		@name = current_user ? current_user.name : "User"
 		@users = current_user
 		@user = User.find_by(id: params[:id])
+		@name = @user.name
 		@new_problem = Problem.new
 		@problems = Problem.all
+		
 	end
 
 	#receives form and creates a user from that data
