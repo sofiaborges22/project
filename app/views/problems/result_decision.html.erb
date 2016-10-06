@@ -15,7 +15,7 @@
 	<div class="row result-info">
 		<div class="col-sm-8">
 			<h3>Why, you may ask?</h3>
-			<p><h4>Because the decision to * <strong><%= @decision_name %></strong> * will result in the highest possible net gain. Your net gain will be an average of <%= number_to_currency(@max)%>. Despite how high the initial costs, by analyzing the expected value along with those costs, this would be the most efficient option.</h4></p>
+			<p><h4>Because the decision to * <strong><%= @decision_name %></strong> * will result in the highest possible net gain. Your net gain will be an average of <%= number_to_currency(@max)%>. Always opt for the decision with the highest net gain. Net gain, to put it simply, is an average of what is expected in profit calculated by subtracting your future expected revenue from your investment expenses. Despite how high the initial costs, by analyzing the expected value along with those costs, this would be the most efficient option.</h4></p>
 			<p><%= link_to "Download analysis in PDF", result_decision_user_problem_path(@user, @problem, format: "pdf"), style: "color:black;"%></p>
 		</div>
 	</div>

@@ -20,14 +20,14 @@
           <div class="form-group">
             <%= f.label(:selling_price, "Selling price *", class: "col-xs-3 control-label") %>
             <div class="col-xs-8">
-                <%= f.number_field :selling_price, class: :text_field, step: :any, placeholder:"How much are you selling each item for?" %>
+                <%= f.number_field :selling_price, class: :text_field, step: :any, placeholder:"How much are you selling each item for?", class: "form-control" %>
             </div>
           </div>
 
           <div class="form-group">
             <%= f.label(:variable_cost, "Variable Cost *", class: "col-xs-3 control-label") %>
             <div class="col-xs-8">
-                <%= f.number_field :variable_cost, class: :text_field, step: :any, placeholder:"What are your variable cost per item?" %>
+                <%= f.number_field :variable_cost, class: :text_field, step: :any, placeholder:"What are your variable cost per item?", class: "form-control"  %>
             </div>
           </div>  
         </div>

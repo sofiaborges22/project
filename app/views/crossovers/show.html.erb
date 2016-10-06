@@ -10,7 +10,7 @@
 	<div class="row result-info">
 		<div class="col-sm-8">
 
-			<p><h4>Because the decision to * <strong><%= @lowest_total_cost.title %></strong> * will result in the best overall cost for your company. Your total cost will be <%= number_to_currency((@lowest_total_cost.units * @lowest_total_cost.variable_cost)+@lowest_total_cost.fixed_cost) %> and because of your desire to sell <%= @lowest_total_cost.units %>, this is the best option for you.</h4></p>
+			<p><h4>Because the decision to * <strong><%= @lowest_total_cost.title %></strong> * will result in the best overall cost for your company. Your total cost will be <%= number_to_currency((@lowest_total_cost.units * @lowest_total_cost.variable_cost)+@lowest_total_cost.fixed_cost) %> and because of your desire to sell <%= @lowest_total_cost.units %>, this is the best option for you. Notice how despite how high or how low your fixed costs and variable costs are, when factoring in those numbers along with the amount of units you intend to sell, your total cost varies and is the most important number to look at.</h4></p>
 			
 			<p><h4>Crossover Analysis is useful for deciding which decision would be the most cost efficient. By evaluating the total cost of each decision, it is always best to follow through with the decision that has the <i>lowest</i> total cost.</h4></p>
 
