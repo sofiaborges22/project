@@ -5,7 +5,7 @@ class User < ApplicationRecord
 	validates :username, presence: true
 	validates :email, presence: true, uniqueness: true
 
-	before_create { generate_token(:auth_token) }
+	# before_create { generate_token(:auth_token) }
 
 	after_initialize :set_default_role, :if => :new_record?
 
