@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	
-	# before_action :authenticate_user!
+	before_action :authenticate_user!
 	
 	def home
 		@name = current_user ? @current_user.username : "User"
@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 		@user = User.find_by(id: params[:id])
 		@new_problem = Problem.new
 		@problems = Problem.all
-		
 	end
 
 	#receives form and creates a user from that data
