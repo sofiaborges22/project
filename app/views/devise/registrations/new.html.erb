@@ -1,0 +1,70 @@
+<div  id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel" style="text-align:center">Register</h4>
+      </div>
+      <div class="modal-body" style="height:300px;">
+
+          <%= form_for(:user, url: user_registration_path) do |f|%>
+            <div class="form-group col-sm-12">
+              <div class="col-sm-4">
+                <%= f.label(:name, "Business Name *", class: "control-label")%>
+              </div>
+              <div class="col-sm-8">
+                <%= f.text_field :name, class: "form-control", style: "margin:2px;" %>
+              </div>
+
+              <div class="col-sm-4">
+                <%= f.label(:username, "Username *", class: "control-label")%>
+              </div>
+              <div class="col-sm-8">
+                <%= f.text_field :username, class: "form-control", style: "margin:2px;"%>
+              </div>
+
+              <div class="col-sm-4">
+                <%= f.label(:email, "Email *", class: "control-label") %>
+              </div>
+              <div class="col-sm-8">
+                <%= f.text_field :email, class: "form-control", style: "margin:2px;"   %>
+              </div>
+
+              <div class="col-sm-4">
+                <%= f.label(:password, "Password *", class: "control-label") %>
+              </div>
+              <div class="col-sm-8">
+                 <%= f.password_field :password, class: "form-control", style: "margin:2px;"   %>
+              </div>
+
+              <div class="col-sm-4">
+                <%= f.label(:password_confirmation, "Confirm Password *", class: "control-label") %>
+              </div>
+              <div class="col-sm-8">
+                 <%= f.password_field :password_confirmation, class: "form-control", style: "margin:2px;"   %>
+              </div>
+            
+            </div>
+
+            <div class="form-group" style="width:200%">
+              <center>
+                <div class="col-sm-6" style="margin:2px;">
+                  <%= f.submit "Register", class: "btn btn-primary"%>
+                </div>
+              </center>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-12">
+                <button type="button" class="btn already-user-btn btn-primary btn-xs" data-toggle="modal" data-target="#logInModal" style="float:right;">
+                Already a user? Log in!
+                </button>
+              </div>
+            </div>
+            
+          <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>  

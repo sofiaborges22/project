@@ -12,27 +12,23 @@
           <li role="presentation" class="menu-item"><a href="http://demo.fabthemes.com/revera/about">About</a></li>
           <li role="presentation" class="menu-item"><a href="http://demo.fabthemes.com/revera/sample-page-2">Contact</a></li>
 
-          <% if @user.present? %>
+          <% if current_user %>
             <li role="presentation" class="menu-item">
-              <%= button_to "Profile", "/users/#{@user.id}", :method => "get", :class => "btn btn-primary btn-xs" %>
+              <%= button_to "Profile", "/users/#{current_user.id}", :method => "get", :class => "btn btn-primary btn-xs" %>
             </li>
           <% else %>
             <li role="presentation" class="menu-item">
-              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#signUpModal">
-                Sign Up
-              </button>
+              <%= button_to "Sign Up", "/users/sign_up", :method => "get", :class => "btn btn-primary btn-xs" %>
             </li>
           <% end %>
 
-          <% if @user.present? %>
+          <% if current_user %>
             <li role="presentation" class="menu-item">
-              <%= button_to "Log out", "/logout", :method => :delete, :class => "btn btn-primary btn-xs" %>
+              <%= button_to "Log out", destroy_user_session_path, :method => :delete, :class => "btn btn-primary btn-xs" %>
             </li>
           <% else %>
             <li role="presentation" class="menu-item">
-              <button type="button" class="btn btn-primary btn-xs" data-toggle="modal" data-target="#logInModal">
-                Log In
-              </button>
+              <%= button_to "Log In", "/users/sign_in", :method => "get", :class => "btn btn-primary btn-xs" %>
             </li>
           <% end %>                
         </ul>

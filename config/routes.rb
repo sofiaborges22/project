@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'password_resets/new'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root to: 'users#home'
 
-  resources :users, only: [:new, :show, :create] do
+  resources :users, only: [:show] do
     resources :problems, only: [:index, :show, :new, :create, :destroy] do 
       member do 
         get :form_decision, :result_decision, :form_crossover
