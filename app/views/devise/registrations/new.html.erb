@@ -1,4 +1,4 @@
-<div  id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -53,17 +53,9 @@
                 </div>
               </center>
             </div>
-
-            <div class="form-group">
-              <div class="col-sm-12">
-                <button type="button" class="btn already-user-btn btn-primary btn-xs" data-toggle="modal" data-target="#logInModal" style="float:right;">
-                Already a user? Log in!
-                </button>
-              </div>
-            </div>
             
           <% end %>
-
+<%= button_to "Already a user? Log In!", new_user_session_path, :method => "get", :class => "btn btn-primary btn-xs", :style => "float:right;" %>
       </div>
     </div>
   </div>

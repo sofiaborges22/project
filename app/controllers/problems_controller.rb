@@ -17,10 +17,10 @@ class ProblemsController < ApplicationController
 
 	def create
 	    user = User.find_by(id: session[:user_id])
-	    problem = user.problems.new(problem_params)
+	    problem = current_user.problems.new(problem_params)
 	    
 	    if problem.save
-	      redirect_to user_path(user)
+	      redirect_to user_path(current_user)
 	    else 
 	      render text => "Problem could not be saved"
 	    end

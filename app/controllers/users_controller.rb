@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 	
-	before_action :authenticate_user!
+	# before_action :authenticate_user!
 	
 	def home
 		@name = current_user ? @current_user.username : "User"

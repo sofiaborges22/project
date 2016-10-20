@@ -1,6 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
- 		# before_action :authenticate_user!
-
+ 	# before_action :authenticate_user!
 
   def new
     super

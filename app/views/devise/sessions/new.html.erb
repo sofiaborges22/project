@@ -1,4 +1,4 @@
-<div id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- <div id="logInModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"> -->
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -7,11 +7,12 @@
       </div>
       <div class="modal-body" style="text-align:center; margin:10px;">
 
-          <h1>Log in</h1>
+          
 
           <div class="row">
             <div class="col-md-6 col-md-offset-3">
-              <%= form_tag login_path do %>
+              <h1>Log in</h1>
+              <%= form_tag user_session_path do %>
 
                 <%= label_tag :username %>
                 <%= text_field_tag :username, nil, class: 'form-control' %>
@@ -26,6 +27,7 @@
                 <% end %>
 
                 <%= submit_tag "Log in", class: "btn btn-primary" %>
+                
               <% end %>
 
             </div>
@@ -33,4 +35,4 @@
       </div>
     </div>
   </div>
-</div>
+<!-- </div> -->

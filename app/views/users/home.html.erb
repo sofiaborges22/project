@@ -42,7 +42,8 @@
 	</div>
 
 	<div class="row pre-footer">
-		 <center><button type="button" class="btn start-btn btn-lg" data-toggle="modal" data-target="#signUpModal"><strong>Let's start</strong></button></center>
+		 <!-- <center><button type="button" class="btn start-btn btn-lg" formaction="/users/sign_in"><strong>Let's start</strong></button></center> -->
+		 <center><%= button_to "Let's Start", new_user_registration_path, :method => "get", :class => "btn start-btn btn-lg"%></center>
  	</div>  
 
 </div>

@@ -9,7 +9,7 @@
 
           <div class="row">
             <div class="col-md-12">
-              <%= form_for @new_problem, url: user_problems_path(@user, @new_problem), html: { method: :post } do |f|%>
+              <%= form_for @new_problem, url: user_problems_path(current_user, @new_problem), html: { method: :post } do |f|%>
 
                 <div class="col-sm-4">
                   <%= f.label(:title, "Title *", class: "control-label", style: "float:left;") %>
